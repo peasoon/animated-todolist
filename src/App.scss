@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  max-width: 1210px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.content {
+  &__add {
+    form {
+      padding: 10px 15px;
+      margin: 0 auto;
+      border: 1px solid black;
+
+      label {
+        display: flex;
+
+        span {
+          font-size: 32px;
+        }
+
+        input {
+          width: 65%;
+          padding: 5px 10px;
+          margin-left: auto;
+          font-size: 24px;
+        }
+
+        + label {
+          margin-top: 20px;
+          margin-bottom: 30px;
+        }
+      }
+
+      .list-button {
+        display: block;
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__list {
+    width: 70%;
+    padding-top: 30px;
+    margin: 0 auto;
+
+    &_item {
+      @extend .content__add;
+
+      form {
+        display: grid;
+        grid-template-columns: 1fr 300px 300px;
+        column-gap: 15px;
+
+        label {
+          grid-column: 3 span;
+        }
+      }
+
+      button {
+        display: block !important;
+
+        &:nth-child(3) {
+          grid-column-start: 2;
+          justify-self: start !important;
+        }
+      }
+
+      + .content__list_item {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.list-button {
+  width: 300px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid black;
+
+  &__red {
+    color: red;
+  }
+
+  &__green {
+    color: green;
+  }
+
+  &__orange {
+    color: orange;
+  }
+}
+
+svg {
+  display: flex;
+  align-items: center;
+}
+
+.moon {
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.ant-modal-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    top: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.fade-enter {
+  opacity: 0.01;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 800ms ease-in;
+}
